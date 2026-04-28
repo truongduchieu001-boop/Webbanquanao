@@ -17,29 +17,31 @@ User Story
 Là Admin, tôi muốn thêm và xóa tài khoản để quản lý người dùng trong hệ thống.
 
 Đánh Giá INVEST
-Tiêu Chí	Đánh Giá	Giải Thích
-I	        ✅	      Không phụ thuộc chức năng khác
-N	        ✅	      Có thể thay đổi quyền tài khoản
-V	        ✅	      Giúp quản lý nhân sự hiệu quả
-E	        ✅	      Dễ ước lượng thời gian
-S	        ✅	      Hoàn thành trong 1 sprint
-T	        ✅	      Dễ kiểm thử
+| Tiêu Chí | Đánh Giá | Giải Thích                      |
+| -------- | -------- | ------------------------------- |
+| I        | ✅        | Không phụ thuộc chức năng khác  |
+| N        | ✅        | Có thể thay đổi quyền tài khoản |
+| V        | ✅        | Giúp quản lý nhân sự hiệu quả   |
+| E        | ✅        | Dễ ước lượng thời gian          |
+| S        | ✅        | Hoàn thành trong 1 sprint       |
+| T        | ✅        | Dễ kiểm thử                     |
+
 
 Thin Vertical Slice
-    Lát Cắt 1: Frontend
-        Danh sách tài khoản
-        Form thêm tài khoản
-        Nút xóa tài khoản
-        Hiển thị thông báo
-    Lát Cắt 2: Backend
-        API thêm tài khoản /api/users/create
-        API xóa tài khoản /api/users/delete/{id}
-        Kiểm tra quyền Admin
-        Validate dữ liệu
-    Lát Cắt 3: Database
-        Lưu tài khoản mới
-        Xóa tài khoản khỏi database
-        Ghi log thao tác Admin
+Lát Cắt 1: Frontend
+    Danh sách tài khoản
+    Form thêm tài khoản
+    Nút xóa tài khoản
+    Hiển thị thông báo
+Lát Cắt 2: Backend
+    API thêm tài khoản /api/users/create
+    API xóa tài khoản /api/users/delete/{id}
+    Kiểm tra quyền Admin
+    Validate dữ liệu
+Lát Cắt 3: Database
+    Lưu tài khoản mới
+    Xóa tài khoản khỏi database
+    Ghi log thao tác Admin
 Kịch Bản BDD
 
 Scenario 1: Admin thêm tài khoản thành công
@@ -82,14 +84,15 @@ And: Hiển thị thông báo thành công
 
 Acceptance Criteria
 
-Mã	          Tiêu Chí
-AC01	          Chỉ Admin được thêm tài khoản
-AC02	          Chỉ Admin được xóa tài khoản
-AC03	          Email là duy nhất
-AC04	          Phải nhập đầy đủ thông tin
-AC05	          Xóa thành công phải cập nhật danh sách
-AC06	          Có thông báo thành công / thất bại
-AC07	          Mật khẩu phải mã hóa khi lưu
+| Mã   | Tiêu Chí                               |
+| ---- | -------------------------------------- |
+| AC01 | Chỉ Admin được thêm tài khoản          |
+| AC02 | Chỉ Admin được xóa tài khoản           |
+| AC03 | Email là duy nhất                      |
+| AC04 | Phải nhập đầy đủ thông tin             |
+| AC05 | Xóa thành công phải cập nhật danh sách |
+| AC06 | Có thông báo thành công / thất bại     |
+| AC07 | Mật khẩu phải mã hóa khi lưu           |
 
 Quy Tắc Nghiệp Vụ
 Quy Tắc 1: Phân Quyền
@@ -105,79 +108,75 @@ Mật khẩu phải hash trước khi lưu.
 CHỨC NĂNG 2: XEM QUẢN LÝ DOANH THU (ADMIN, MANAGER)
 User Story & INVEST
 User Story
-
-Là Admin hoặc Manager, tôi muốn xem doanh thu để theo dõi hoạt động kinh doanh.
-
+Là Admin hoặc Manager, tôi muốn vào mục Quản lý > Doanh thu để xem doanh thu cửa hàng.
 Đánh Giá INVEST
-Tiêu Chí	                         Đánh Giá	                         Giải Thích
-I - Independent (Độc lập)	     ✅	     Chức năng xem doanh thu hoạt động độc lập, không phụ thuộc chức năng thêm/xóa tài khoản
-N - Negotiable (Có thể thảo luận)	✅	     Có thể thay đổi cách hiển thị doanh thu: bảng, biểu đồ, lọc theo ngày/tháng/năm
-V - Valuable (Có giá trị)	     ✅	     Giúp Admin/Manager kiểm soát tài chính và đánh giá hiệu quả kinh doanh
-E - Estimable (Có thể ước lượng)	✅	     Có thể ước lượng thời gian phát triển và kiểm thử rõ ràng
-S - Small (Nhỏ gọn)	               ✅	     Có thể hoàn thành trong 1 sprint nếu chia theo báo cáo cơ bản
-T - Testable (Có thể kiểm thử)	✅	     Có thể kiểm tra dữ liệu doanh thu, quyền truy cập, bộ lọc thời gian
+| Tiêu Chí        | Đánh Giá | Giải Thích                         |
+| --------------- | -------- | ---------------------------------- |
+| I - Independent | ✅        | Hoạt động độc lập                  |
+| N - Negotiable  | ✅        | Có thể thay đổi giao diện hiển thị |
+| V - Valuable    | ✅        | Giúp theo dõi kinh doanh           |
+| E - Estimable   | ✅        | Dễ ước lượng thời gian             |
+| S - Small       | ✅        | Hoàn thành trong sprint            |
+| T - Testable    | ✅        | Kiểm thử được                      |
+
 
 Thin Vertical Slice
+
 Lát Cắt 1: Frontend
-     Trang báo cáo doanh thu
-     Bộ lọc ngày / tháng / năm
-     Biểu đồ doanh thu
-     Bảng dữ liệu
+Menu Quản lý
+Nút Doanh thu
+Trang hiển thị doanh thu
+Bảng thống kê
+
 Lát Cắt 2: Backend
-     API lấy doanh thu /api/revenue
-     Tổng hợp đơn hàng
-     Phân quyền Admin / Manager
+API lấy doanh thu
+Kiểm tra quyền Admin / Manager
+Tổng hợp doanh thu từ hóa đơn
+
 Lát Cắt 3: Database
-     Truy vấn bảng đơn hàng
-     Tính tổng doanh thu
-     Lưu lịch sử xem báo cáo
+Truy vấn hóa đơn đã thanh toán
+Tính tổng doanh thu
+Trả dữ liệu lên giao diện
+
+
 
 Kịch Bản BDD
-Scenario 1: Xem doanh thu theo tháng
+Scenario 1: Xem doanh thu thành công (Happy Path)
 Feature: Xem doanh thu
+Scenario: Manager xem doanh thu thành công
+Given: Manager đã đăng nhập hệ thống
+And: Đang ở trang chínhWhen: Nhấn menu "Quản lý"
+And: Chọn mục "Doanh thu"
+Then: Hệ thống chuyển đến trang doanh thu
+And: Hiển thị tổng doanh thu
+And: Hiển thị danh sách hóa đơn doanh thu
 
-Scenario: Manager xem doanh thu tháng
+Scenario 2: Khách hàng đăng nhập nhưng không có quyền (Unhappy Path)
+Scenario: Khách hàng truy cập doanh thu
+Given: Khách hàng đã đăng nhập
+When: Truy cập mục doanh thu
+Then: Hệ thống không hiển thị menu "Doanh thu"
 
-Given: Manager đã đăng nhập
-And: Đang ở trang doanh thu
-
-When: Chọn tháng 04/2026
-And: Nhấn nút "Xem"
-
-Then: Hệ thống hiển thị tổng doanh thu tháng 04/2026
-And: Hiển thị biểu đồ thống kê
-Scenario 2: Không có dữ liệu
-Scenario: Không có doanh thu
-
-Given: Không có đơn hàng trong tháng
-
-When: Người dùng chọn tháng cần xem
-
-Then: Hiển thị "Không có dữ liệu"
-Scenario 3: User không đủ quyền
-Scenario: Nhân viên thường truy cập doanh thu
-
-Given: Nhân viên thường đăng nhập
-
-When: Truy cập trang doanh thu
-
-Then: Hiển thị lỗi "Không có quyền truy cập"
 Acceptance Criteria
-Mã	Tiêu Chí
-AC01	Admin và Manager được xem doanh thu
-AC02	Nhân viên thường không được truy cập
-AC03	Xem được theo ngày/tháng/năm
-AC04	Hiển thị tổng doanh thu chính xác
-AC05	Có biểu đồ hoặc bảng dữ liệu
-AC06	Nếu không có dữ liệu phải thông báo
+| Mã   | Tiêu Chí                                  |
+| ---- | ----------------------------------------- |
+| AC01 | Chỉ Admin và Manager được xem doanh thu   |
+| AC02 | Truy cập qua Quản lý > Doanh thu          |
+| AC03 | Hiển thị tổng doanh thu chính xác         |
+| AC04 | Hiển thị danh sách hóa đơn                |
+| AC05 | Khách hàng không thấy chức năng doanh thu |
+| AC06 | Người không đủ quyền bị từ chối truy cập  |
+
 Quy Tắc Nghiệp Vụ
 Quy Tắc 1: Phân Quyền
-Chỉ Admin và Manager được xem doanh thu.
-Quy Tắc 2: Tính Doanh Thu
-Doanh thu = Tổng tiền đơn hàng đã thanh toán.
-Quy Tắc 3: Loại Trừ
-Đơn hàng hủy không tính doanh thu.
-Quy Tắc 4: Thời Gian
-Cho phép lọc theo ngày, tháng, năm.
+Chỉ Admin và Manager được truy cập doanh thu.
+Quy Tắc 2: Điều Hướng
+Người dùng vào Quản lý > Doanh thu.
+Quy Tắc 3: Tính Doanh Thu
+Chỉ hóa đơn đã thanh toán mới được tính.
+Quy Tắc 4: Bảo Mật
+Khách hàng không được truy cập chức năng này.
 Quy Tắc 5: Hiển Thị
-Số tiền hiển thị định dạng VNĐ.
+Doanh thu hiển thị theo VNĐ.
+
+
