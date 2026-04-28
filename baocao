@@ -143,15 +143,19 @@ Trả dữ liệu lên giao diện
 Kịch Bản BDD
 Scenario 1: Xem doanh thu thành công (Happy Path)
 Feature: Xem doanh thu
+
 Scenario: Manager xem doanh thu thành công
+
 Given: Manager đã đăng nhập hệ thống
-And: Đang ở trang chínhWhen: Nhấn menu "Quản lý"
+And: Đang ở trang chính
+When: Nhấn menu "Quản lý"
 And: Chọn mục "Doanh thu"
 Then: Hệ thống chuyển đến trang doanh thu
 And: Hiển thị tổng doanh thu
 And: Hiển thị danh sách hóa đơn doanh thu
 
 Scenario 2: Khách hàng đăng nhập nhưng không có quyền (Unhappy Path)
+
 Scenario: Khách hàng truy cập doanh thu
 Given: Khách hàng đã đăng nhập
 When: Truy cập mục doanh thu
