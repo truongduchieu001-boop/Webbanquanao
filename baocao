@@ -1,0 +1,172 @@
+BÁO CÁO YÊU CẦU PHẦN MỀM
+Hệ Thống Quản Lý - Chức Năng Quản Lý Tài Khoản & Xem Doanh Thu
+Mục Lục
+Tổng Quan
+Chức Năng 1: Quản Lý Tài Khoản (Admin)
+Chức Năng 2: Xem Quản Lý Doanh Thu (Admin, Manager)
+Tổng Quan
+
+Người thực hiện: Trương Đức Hiếu
+Hệ thống: Quản lý cửa hàng / doanh nghiệp
+Actor: Admin, Manager
+
+CHỨC NĂNG 1: QUẢN LÝ TÀI KHOẢN (ADMIN)
+User Story & INVEST
+User Story
+
+Là Admin, tôi muốn thêm và xóa tài khoản để quản lý người dùng trong hệ thống.
+
+Đánh Giá INVEST
+Tiêu Chí	Đánh Giá	Giải Thích
+I	✅	Không phụ thuộc chức năng khác
+N	✅	Có thể thay đổi quyền tài khoản
+V	✅	Giúp quản lý nhân sự hiệu quả
+E	✅	Dễ ước lượng thời gian
+S	✅	Hoàn thành trong 1 sprint
+T	✅	Dễ kiểm thử
+Thin Vertical Slice
+Lát Cắt 1: Frontend
+Danh sách tài khoản
+Form thêm tài khoản
+Nút xóa tài khoản
+Hiển thị thông báo
+Lát Cắt 2: Backend
+API thêm tài khoản /api/users/create
+API xóa tài khoản /api/users/delete/{id}
+Kiểm tra quyền Admin
+Validate dữ liệu
+Lát Cắt 3: Database
+Lưu tài khoản mới
+Xóa tài khoản khỏi database
+Ghi log thao tác Admin
+Kịch Bản BDD
+Scenario 1: Admin thêm tài khoản thành công
+Feature: Quản lý tài khoản
+
+Scenario: Admin thêm tài khoản mới
+
+Given: Admin đã đăng nhập
+And: Đang ở trang quản lý tài khoản
+
+When: Nhập tên "Nguyễn Văn B"
+And: Nhập email "b@gmail.com"
+And: Chọn quyền "Manager"
+And: Nhấn nút "Thêm"
+
+Then: Hệ thống kiểm tra hợp lệ
+And: Tạo tài khoản thành công
+And: Hiển thị thông báo "Thêm tài khoản thành công"
+Scenario 2: Email đã tồn tại
+Scenario: Admin thêm tài khoản trùng email
+
+Given: Email "b@gmail.com" đã tồn tại
+
+When: Admin nhập email "b@gmail.com"
+And: Nhấn nút "Thêm"
+
+Then: Hiển thị lỗi "Email đã tồn tại"
+Scenario 3: Xóa tài khoản thành công
+Scenario: Admin xóa tài khoản
+
+Given: Tài khoản nhân viên tồn tại
+
+When: Admin nhấn nút "Xóa"
+
+Then: Hệ thống xác nhận xóa
+And: Tài khoản bị xóa khỏi hệ thống
+And: Hiển thị thông báo thành công
+Acceptance Criteria
+Mã	Tiêu Chí
+AC01	Chỉ Admin được thêm tài khoản
+AC02	Chỉ Admin được xóa tài khoản
+AC03	Email là duy nhất
+AC04	Phải nhập đầy đủ thông tin
+AC05	Xóa thành công phải cập nhật danh sách
+AC06	Có thông báo thành công / thất bại
+AC07	Mật khẩu phải mã hóa khi lưu
+Quy Tắc Nghiệp Vụ
+Quy Tắc 1: Phân Quyền
+Chỉ Admin được phép thêm/xóa tài khoản.
+Quy Tắc 2: Email Duy Nhất
+Mỗi email chỉ có 1 tài khoản.
+Quy Tắc 3: Không Xóa Chính Mình
+Admin không được xóa tài khoản đang đăng nhập.
+Quy Tắc 4: Bảo Mật
+Mật khẩu phải hash trước khi lưu.
+CHỨC NĂNG 2: XEM QUẢN LÝ DOANH THU (ADMIN, MANAGER)
+User Story & INVEST
+User Story
+
+Là Admin hoặc Manager, tôi muốn xem doanh thu để theo dõi hoạt động kinh doanh.
+
+Đánh Giá INVEST
+Tiêu Chí	Đánh Giá
+I	✅
+N	✅
+V	✅
+E	✅
+S	✅
+T	✅
+Thin Vertical Slice
+Lát Cắt 1: Frontend
+Trang báo cáo doanh thu
+Bộ lọc ngày / tháng / năm
+Biểu đồ doanh thu
+Bảng dữ liệu
+Lát Cắt 2: Backend
+API lấy doanh thu /api/revenue
+Tổng hợp đơn hàng
+Phân quyền Admin / Manager
+Lát Cắt 3: Database
+Truy vấn bảng đơn hàng
+Tính tổng doanh thu
+Lưu lịch sử xem báo cáo
+Kịch Bản BDD
+Scenario 1: Xem doanh thu theo tháng
+Feature: Xem doanh thu
+
+Scenario: Manager xem doanh thu tháng
+
+Given: Manager đã đăng nhập
+And: Đang ở trang doanh thu
+
+When: Chọn tháng 04/2026
+And: Nhấn nút "Xem"
+
+Then: Hệ thống hiển thị tổng doanh thu tháng 04/2026
+And: Hiển thị biểu đồ thống kê
+Scenario 2: Không có dữ liệu
+Scenario: Không có doanh thu
+
+Given: Không có đơn hàng trong tháng
+
+When: Người dùng chọn tháng cần xem
+
+Then: Hiển thị "Không có dữ liệu"
+Scenario 3: User không đủ quyền
+Scenario: Nhân viên thường truy cập doanh thu
+
+Given: Nhân viên thường đăng nhập
+
+When: Truy cập trang doanh thu
+
+Then: Hiển thị lỗi "Không có quyền truy cập"
+Acceptance Criteria
+Mã	Tiêu Chí
+AC01	Admin và Manager được xem doanh thu
+AC02	Nhân viên thường không được truy cập
+AC03	Xem được theo ngày/tháng/năm
+AC04	Hiển thị tổng doanh thu chính xác
+AC05	Có biểu đồ hoặc bảng dữ liệu
+AC06	Nếu không có dữ liệu phải thông báo
+Quy Tắc Nghiệp Vụ
+Quy Tắc 1: Phân Quyền
+Chỉ Admin và Manager được xem doanh thu.
+Quy Tắc 2: Tính Doanh Thu
+Doanh thu = Tổng tiền đơn hàng đã thanh toán.
+Quy Tắc 3: Loại Trừ
+Đơn hàng hủy không tính doanh thu.
+Quy Tắc 4: Thời Gian
+Cho phép lọc theo ngày, tháng, năm.
+Quy Tắc 5: Hiển Thị
+Số tiền hiển thị định dạng VNĐ.
