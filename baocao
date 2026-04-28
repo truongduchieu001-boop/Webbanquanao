@@ -18,27 +18,29 @@ Là Admin, tôi muốn thêm và xóa tài khoản để quản lý người dù
 
 Đánh Giá INVEST
 Tiêu Chí	Đánh Giá	Giải Thích
-I	✅	Không phụ thuộc chức năng khác
-N	✅	Có thể thay đổi quyền tài khoản
-V	✅	Giúp quản lý nhân sự hiệu quả
-E	✅	Dễ ước lượng thời gian
-S	✅	Hoàn thành trong 1 sprint
-T	✅	Dễ kiểm thử
+I	        ✅	      Không phụ thuộc chức năng khác
+N	        ✅	      Có thể thay đổi quyền tài khoản
+V	        ✅	      Giúp quản lý nhân sự hiệu quả
+E	        ✅	      Dễ ước lượng thời gian
+S	        ✅	      Hoàn thành trong 1 sprint
+T	        ✅	      Dễ kiểm thử
 Thin Vertical Slice
-Lát Cắt 1: Frontend
-Danh sách tài khoản
-Form thêm tài khoản
-Nút xóa tài khoản
-Hiển thị thông báo
-Lát Cắt 2: Backend
-API thêm tài khoản /api/users/create
-API xóa tài khoản /api/users/delete/{id}
-Kiểm tra quyền Admin
-Validate dữ liệu
-Lát Cắt 3: Database
-Lưu tài khoản mới
-Xóa tài khoản khỏi database
-Ghi log thao tác Admin
+     
+
+    Lát Cắt 1: Frontend
+        Danh sách tài khoản
+        Form thêm tài khoản
+        Nút xóa tài khoản
+        Hiển thị thông báo
+    Lát Cắt 2: Backend
+        API thêm tài khoản /api/users/create
+        API xóa tài khoản /api/users/delete/{id}
+        Kiểm tra quyền Admin
+        Validate dữ liệu
+    Lát Cắt 3: Database
+        Lưu tài khoản mới
+        Xóa tài khoản khỏi database
+        Ghi log thao tác Admin
 Kịch Bản BDD
 Scenario 1: Admin thêm tài khoản thành công
 Feature: Quản lý tài khoản
